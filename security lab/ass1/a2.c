@@ -1,14 +1,6 @@
 #include<stdio.h>
 #include "mod.h"
 
-int gcd(int a,int b)
-{
-    if(b == 0)
-        return a;
-
-    return gcd(b,mod(a,b)); 
-}
-
 int multInv(int n,int x)
 {
     if(gcd(n,x) != 1)

@@ -1,5 +1,16 @@
 #include<stdio.h>
-#include "mod.h"
+int mod(int a,int b)
+{
+    return a%b < 0 ? a%b + b : a%b;
+}
+
+int gcd(int a,int b)
+{
+    if(b == 0)
+        return a;
+
+    return gcd(b,mod(a,b)); 
+}
 
 void dioPhantine(int a,int b,int c)
 {
@@ -58,5 +69,5 @@ int main()
 
     printf("enter the values( for ax+by+c ): ");
     scanf("%d%d%d",&a,&b,&c);
-    dioPhantine(20,5,100);
+    dioPhantine(a,b,c);
 }

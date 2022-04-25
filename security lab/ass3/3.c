@@ -163,12 +163,6 @@ int main()
 {
     char text[100];
 
-    printf("enter the plain text: ");
-
-    scanf("%[^\n]s",text);
-
-    getchar();
-
     int keySize;
 
     printf("enter the key size: ");
@@ -180,15 +174,39 @@ int main()
     printf("enter the encryption key: ");
 
     for(int i=0;i<keySize;i++)
-        scanf("%d",&key[i]);    
+        scanf("%d",&key[i]);
 
-    char* encryptedText = permutationEncrypt(text,key,keySize);
+    int op;
 
-    printf("the encrypted text is: %s\n\n",encryptedText);
+    printf("Enter 1 to encrypt or 2 to decrypt a text: "); 
 
-    char* decryptedText = permutationDecrypt(encryptedText,key,keySize);
+    scanf("%d",&op);
 
-    printf("the decrypted text is: %s\n\n",decryptedText);
+    getchar();
 
+    if(op == 1)
+    {
+        printf("enter the plain text: ");
+
+        scanf("%[^\n]s",text);
+
+        char* encryptedText = permutationEncrypt(text,key,keySize);
+
+        printf("the encrypted text is: %s\n\n",encryptedText);
+    } 
+
+    else if(op == 2)
+    {
+        printf("enter the encrypted text: ");
+
+        scanf("%[^\n]s",text);
+
+        char* decryptedText = permutationDecrypt(text,key,keySize);
+
+        printf("the decrypted text is: %s\n\n",decryptedText);
+
+    }
+
+    
     return 0;
 }
